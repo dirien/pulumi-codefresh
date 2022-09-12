@@ -1,0 +1,2150 @@
+{
+    "name": "codefresh",
+    "displayName": "Codefresh",
+    "description": "A Pulumi package for creating and managing codefresh cloud resources.",
+    "keywords": [
+        "pulumi",
+        "codefresh",
+        "category/cloud"
+    ],
+    "homepage": "https://www.pulumi.com",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`codefresh` Terraform Provider](https://github.com/codefresh-io/terraform-provider-codefresh).",
+    "repository": "https://github.com/pulumiverse/pulumi-qovery",
+    "logoUrl": "https://avatars3.githubusercontent.com/codefresh-io",
+    "pluginDownloadURL": "github://api.github.com/dirien/pulumi-codefresh",
+    "publisher": "Pulumiverse",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "compatibility": "tfbridge20",
+            "namespaces": null,
+            "packageReferences": {
+                "Pulumi": "3.*"
+            },
+            "rootNamespace": "Pulumiverse"
+        },
+        "go": {
+            "generateExtraInputTypes": true,
+            "generateResourceContainerTypes": true,
+            "importBasePath": "github.com/pulumi/pulumi-codefresh/sdk/go/codefresh"
+        },
+        "java": {
+            "basePackage": "com.pulumiverse"
+        },
+        "nodejs": {
+            "compatibility": "tfbridge20",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "disableUnionOutputTypes": true,
+            "packageDescription": "A Pulumi package for creating and managing codefresh cloud resources.",
+            "packageName": "@pulumiverse/codefresh",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/codefresh-io/terraform-provider-codefresh)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-codefresh` repo](https://github.com/pulumiverse/pulumi-qovery/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-codefresh` repo](https://github.com/codefresh-io/terraform-provider-codefresh/issues).",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "compatibility": "tfbridge20",
+            "packageName": "pulumiverse_codefresh",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/codefresh-io/terraform-provider-codefresh)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-codefresh` repo](https://github.com/pulumiverse/pulumi-qovery/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-codefresh` repo](https://github.com/codefresh-io/terraform-provider-codefresh/issues).",
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            }
+        }
+    },
+    "config": {
+        "variables": {
+            "apiUrl": {
+                "type": "string"
+            },
+            "token": {
+                "type": "string"
+            }
+        }
+    },
+    "types": {
+        "codefresh:index/AccountBuild:AccountBuild": {
+            "properties": {
+                "nodes": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "parallel": {
+                    "type": "integer",
+                    "description": "How many pipelines can be run in parallel.\n` `node` - (Optional) Number of nodes.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "parallel"
+            ]
+        },
+        "codefresh:index/AccountLimit:AccountLimit": {
+            "properties": {
+                "collaborators": {
+                    "type": "integer",
+                    "description": "Max account's collaborators number.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dataRetentionWeeks": {
+                    "type": "integer",
+                    "description": "-(Optional) How long in weeks will the builds be stored.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "collaborators"
+            ]
+        },
+        "codefresh:index/ContextSpec:ContextSpec": {
+            "properties": {
+                "config": {
+                    "$ref": "#/types/codefresh:index/ContextSpecConfig:ContextSpecConfig",
+                    "description": "A `config` block as documented below. Shared Config [spec](https://codefresh-io.github.io/cli/contexts/spec/config/).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "secret": {
+                    "$ref": "#/types/codefresh:index/ContextSpecSecret:ContextSpecSecret",
+                    "description": "A `secret` block as documented below. Shared Secret [spec](https://codefresh-io.github.io/cli/contexts/spec/secret/).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "secretyaml": {
+                    "$ref": "#/types/codefresh:index/ContextSpecSecretyaml:ContextSpecSecretyaml",
+                    "description": "A `secretyaml` block as documented below. Secret Yaml Configuration Context[spec](https://codefresh-io.github.io/cli/contexts/spec/secret-yaml/).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "storageazuref": {
+                    "$ref": "#/types/codefresh:index/ContextSpecStorageazuref:ContextSpecStorageazuref",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "storagegc": {
+                    "$ref": "#/types/codefresh:index/ContextSpecStoragegc:ContextSpecStoragegc",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "storages3": {
+                    "$ref": "#/types/codefresh:index/ContextSpecStorages3:ContextSpecStorages3",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "yaml": {
+                    "$ref": "#/types/codefresh:index/ContextSpecYaml:ContextSpecYaml",
+                    "description": "A `yaml` block as documented below. Yaml Configuration Context [spec](https://codefresh-io.github.io/cli/contexts/spec/yaml/).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/ContextSpecConfig:ContextSpecConfig": {
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of strings representing the variables to be defined in the Shared Config.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "data"
+            ]
+        },
+        "codefresh:index/ContextSpecSecret:ContextSpecSecret": {
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Map of strings representing the variables to be defined in the Shared Config.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "data"
+            ]
+        },
+        "codefresh:index/ContextSpecSecretyaml:ContextSpecSecretyaml": {
+            "properties": {
+                "data": {
+                    "type": "string",
+                    "description": "String representing a YAML file content\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "data"
+            ]
+        },
+        "codefresh:index/ContextSpecStorageazuref:ContextSpecStorageazuref": {
+            "properties": {
+                "data": {
+                    "$ref": "#/types/codefresh:index/ContextSpecStorageazurefData:ContextSpecStorageazurefData",
+                    "description": "Map of strings representing the variables to be defined in the Shared Config.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "data"
+            ]
+        },
+        "codefresh:index/ContextSpecStorageazurefData:ContextSpecStorageazurefData": {
+            "properties": {
+                "auth": {
+                    "$ref": "#/types/codefresh:index/ContextSpecStorageazurefDataAuth:ContextSpecStorageazurefDataAuth",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "auth"
+            ]
+        },
+        "codefresh:index/ContextSpecStorageazurefDataAuth:ContextSpecStorageazurefDataAuth": {
+            "properties": {
+                "accountKey": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "accountName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "accountKey",
+                "accountName",
+                "type"
+            ]
+        },
+        "codefresh:index/ContextSpecStoragegc:ContextSpecStoragegc": {
+            "properties": {
+                "data": {
+                    "$ref": "#/types/codefresh:index/ContextSpecStoragegcData:ContextSpecStoragegcData",
+                    "description": "Map of strings representing the variables to be defined in the Shared Config.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "data"
+            ]
+        },
+        "codefresh:index/ContextSpecStoragegcData:ContextSpecStoragegcData": {
+            "properties": {
+                "auth": {
+                    "$ref": "#/types/codefresh:index/ContextSpecStoragegcDataAuth:ContextSpecStoragegcDataAuth",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "auth"
+            ]
+        },
+        "codefresh:index/ContextSpecStoragegcDataAuth:ContextSpecStoragegcDataAuth": {
+            "properties": {
+                "jsonConfig": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "jsonConfig",
+                "type"
+            ]
+        },
+        "codefresh:index/ContextSpecStorages3:ContextSpecStorages3": {
+            "properties": {
+                "data": {
+                    "$ref": "#/types/codefresh:index/ContextSpecStorages3Data:ContextSpecStorages3Data",
+                    "description": "Map of strings representing the variables to be defined in the Shared Config.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "data"
+            ]
+        },
+        "codefresh:index/ContextSpecStorages3Data:ContextSpecStorages3Data": {
+            "properties": {
+                "auth": {
+                    "$ref": "#/types/codefresh:index/ContextSpecStorages3DataAuth:ContextSpecStorages3DataAuth",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "auth"
+            ]
+        },
+        "codefresh:index/ContextSpecStorages3DataAuth:ContextSpecStorages3DataAuth": {
+            "properties": {
+                "jsonConfig": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "jsonConfig",
+                "type"
+            ]
+        },
+        "codefresh:index/ContextSpecYaml:ContextSpecYaml": {
+            "properties": {
+                "data": {
+                    "type": "string",
+                    "description": "String representing a YAML file content\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "data"
+            ]
+        },
+        "codefresh:index/PipelineSpec:PipelineSpec": {
+            "properties": {
+                "branchConcurrency": {
+                    "type": "integer",
+                    "description": "The maximum amount of concurrent builds that may run for each branch\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "concurrency": {
+                    "type": "integer",
+                    "description": "The maximum amount of concurrent builds.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "contexts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of strings representing the contexts ([shared_configuration](https://codefresh.io/docs/docs/configure-ci-cd-pipeline/shared-configuration/)) to be configured for the pipeline\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "options": {
+                    "$ref": "#/types/codefresh:index/PipelineSpecOptions:PipelineSpecOptions",
+                    "description": "A `options` block as documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "packId": {
+                    "type": "string",
+                    "description": "SAAS pack (`5cd1746617313f468d669013` for Small; `5cd1746717313f468d669014` for Medium; `5cd1746817313f468d669015` for Large; `5cd1746817313f468d669017` for XL; `5cd1746817313f468d669018` for XXL)\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "priority": {
+                    "type": "integer",
+                    "description": "Helps to organize the order of builds execution in case of reaching the concurrency limit.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "runtimeEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/PipelineSpecRuntimeEnvironment:PipelineSpecRuntimeEnvironment"
+                    },
+                    "description": "A collection of `runtime_environment` blocks as documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "specTemplates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/PipelineSpecSpecTemplate:PipelineSpecSpecTemplate"
+                    },
+                    "description": "A collection of `spec_template` blocks as documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "terminationPolicy": {
+                    "$ref": "#/types/codefresh:index/PipelineSpecTerminationPolicy:PipelineSpecTerminationPolicy",
+                    "description": "A `termination_policy` block as documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "triggerConcurrency": {
+                    "type": "integer",
+                    "description": "The maximum amount of concurrent builds that may run for each trigger.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "triggers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/PipelineSpecTrigger:PipelineSpecTrigger"
+                    },
+                    "description": "A collection of `trigger` blocks as documented below. Triggers [documentation](https://codefresh.io/docs/docs/configure-ci-cd-pipeline/triggers/git-triggers/).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "variables": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Pipeline variables.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/PipelineSpecOptions:PipelineSpecOptions": {
+            "properties": {
+                "keepPvcsForPendingApproval": {
+                    "type": "boolean",
+                    "description": "Boolean for the Settings under pending approval: `When build enters \"Pending Approval\" state, volume should`:\n* Default (attribute not specified): \"Use Setting accounts\"\n* true: \"Remain (build remains active)\"\n* false: \"Be removed\"\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pendingApprovalConcurrencyApplied": {
+                    "type": "boolean",
+                    "description": "Boolean for the Settings under pending approval: `Pipeline concurrency policy: Builds on \"Pending Approval\" state should be`:\n* Default (attribute not specified): \"Use Setting accounts\"\n* true: \"Included in concurrency\"\n* false: \"Not included in concurrency\"\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/PipelineSpecRuntimeEnvironment:PipelineSpecRuntimeEnvironment": {
+            "properties": {
+                "cpu": {
+                    "type": "string",
+                    "description": "A required amount of CPU.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dindStorage": {
+                    "type": "string",
+                    "description": "A pipeline shared storage.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "memory": {
+                    "type": "string",
+                    "description": "A required amount of memory.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A name of runtime.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/PipelineSpecSpecTemplate:PipelineSpecSpecTemplate": {
+            "properties": {
+                "context": {
+                    "type": "string",
+                    "description": "The Codefresh Git [context](https://codefresh.io/docs/docs/integrations/git-providers/).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "location": {
+                    "type": "string",
+                    "description": "Default value - **git**.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The relative path to the Codefresh pipeline file.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repo": {
+                    "type": "string",
+                    "description": "The GitHub `account/repo_name`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "revision": {
+                    "type": "string",
+                    "description": "The pipeline's revision. Should be added to the **lifecycle/ignore_changes** or incremented mannually each update.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "path",
+                "repo",
+                "revision"
+            ]
+        },
+        "codefresh:index/PipelineSpecTerminationPolicy:PipelineSpecTerminationPolicy": {
+            "properties": {
+                "onCreateBranch": {
+                    "$ref": "#/types/codefresh:index/PipelineSpecTerminationPolicyOnCreateBranch:PipelineSpecTerminationPolicyOnCreateBranch",
+                    "description": "A `on_create_branch` block as documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onTerminateAnnotation": {
+                    "type": "boolean",
+                    "description": "Boolean. Enables the policy `Once a build is terminated, terminate all child builds initiated from it`. Default false.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/PipelineSpecTerminationPolicyOnCreateBranch:PipelineSpecTerminationPolicyOnCreateBranch": {
+            "properties": {
+                "branchName": {
+                    "type": "string",
+                    "description": "A regular expression to filter the branches on with the termination policy applies.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ignoreBranch": {
+                    "type": "boolean",
+                    "description": "Boolean. See table below for usage.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ignoreTrigger": {
+                    "type": "boolean",
+                    "description": "Boolean. See table below for usage.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/PipelineSpecTrigger:PipelineSpecTrigger": {
+            "properties": {
+                "branchRegex": {
+                    "type": "string",
+                    "description": "A regular expression and will only trigger for branches that match this naming pattern.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "branchRegexInput": {
+                    "type": "string",
+                    "description": "Flag to manage how the `branch_regex` field is interpreted. Possible values: \"multiselect-exclude\", \"multiselect\", \"regex\". Default: \"regex\"\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "commentRegex": {
+                    "type": "string",
+                    "description": "A regular expression and will only trigger for pull requests where a comment matches this naming pattern.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "commitStatusTitle": {
+                    "type": "string",
+                    "description": "The commit status title pushed to the GIT version control system.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "context": {
+                    "type": "string",
+                    "description": "Codefresh Git context.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "contexts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of strings representing the contexts ([shared_configuration](https://codefresh.io/docs/docs/configure-ci-cd-pipeline/shared-configuration/)) to be loaded when the trigger is executed\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The trigger description.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "disabled": {
+                    "type": "boolean",
+                    "description": "Boolean. If false, trigger will never be activated.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of GitHub events for which a Pipeline is triggered. Default value - **push.heads**.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "modifiedFilesGlob": {
+                    "type": "string",
+                    "description": "Allows to constrain the build and trigger it only if the modified files from the commit match this glob expression.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the pipeline.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "options": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/PipelineSpecTriggerOption:PipelineSpecTriggerOption"
+                    },
+                    "description": "A `options` block as documented below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "provider": {
+                    "type": "string",
+                    "description": "Default value - **github**.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pullRequestAllowForkEvents": {
+                    "type": "boolean",
+                    "description": "Boolean. If this trigger is also applicable to Git forks.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pullRequestTargetBranchRegex": {
+                    "type": "string",
+                    "description": "A regular expression and will only trigger for pull requests to branches that match this naming pattern.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repo": {
+                    "type": "string",
+                    "description": "The GitHub `account/repo_name`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "runtimeEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/PipelineSpecTriggerRuntimeEnvironment:PipelineSpecTriggerRuntimeEnvironment"
+                    },
+                    "description": "A collection of `runtime_environment` blocks as documented below.\n- `options`: (Optional) A collection `option` blocks as documented below.\n---\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The trigger type. Default value - **git**.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "variables": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Trigger variables.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/PipelineSpecTriggerOption:PipelineSpecTriggerOption": {
+            "properties": {
+                "enableNotifications": {
+                    "type": "boolean",
+                    "description": "Boolean. If false the pipeline will not send notifications to Slack and status updates back to the Git provider. Default false\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "noCache": {
+                    "type": "boolean",
+                    "description": "Boolean. If true, docker layer cache is disabled. Default false\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "noCfCache": {
+                    "type": "boolean",
+                    "description": "Boolean. If true, extra Codefresh caching is disabled. Default false\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resetVolume": {
+                    "type": "boolean",
+                    "description": "Boolean. If true, all files on volume will be deleted before each execution. Default false\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/PipelineSpecTriggerRuntimeEnvironment:PipelineSpecTriggerRuntimeEnvironment": {
+            "properties": {
+                "cpu": {
+                    "type": "string",
+                    "description": "A required amount of CPU.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dindStorage": {
+                    "type": "string",
+                    "description": "A pipeline shared storage.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "memory": {
+                    "type": "string",
+                    "description": "A required amount of memory.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A name of runtime.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/RegistrySpec:RegistrySpec": {
+            "properties": {
+                "acr": {
+                    "$ref": "#/types/codefresh:index/RegistrySpecAcr:RegistrySpecAcr",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "bintray": {
+                    "$ref": "#/types/codefresh:index/RegistrySpecBintray:RegistrySpecBintray",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "dockerhub": {
+                    "$ref": "#/types/codefresh:index/RegistrySpecDockerhub:RegistrySpecDockerhub",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "ecr": {
+                    "$ref": "#/types/codefresh:index/RegistrySpecEcr:RegistrySpecEcr",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "gar": {
+                    "$ref": "#/types/codefresh:index/RegistrySpecGar:RegistrySpecGar",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "gcr": {
+                    "$ref": "#/types/codefresh:index/RegistrySpecGcr:RegistrySpecGcr",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "other": {
+                    "$ref": "#/types/codefresh:index/RegistrySpecOther:RegistrySpecOther",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/RegistrySpecAcr:RegistrySpecAcr": {
+            "properties": {
+                "clientId": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing client id.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clientSecret": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing client secret.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing your acr registry domain.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryPrefix": {
+                    "type": "string",
+                    "description": "_(Optional)_ String. See the [docs](https://codefresh.io/docs/docs/integrations/docker-registries/#using-an-optional-repository-prefix).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "clientId",
+                "clientSecret",
+                "domain"
+            ]
+        },
+        "codefresh:index/RegistrySpecBintray:RegistrySpecBintray": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing the bintray domain\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryPrefix": {
+                    "type": "string",
+                    "description": "_(Optional)_ String. See the [docs](https://codefresh.io/docs/docs/integrations/docker-registries/#using-an-optional-repository-prefix).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "token": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing token\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing the username\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "token",
+                "username"
+            ]
+        },
+        "codefresh:index/RegistrySpecDockerhub:RegistrySpecDockerhub": {
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "description": "_(Required, Sensitive)_ String.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string",
+                    "description": "_(Required)_ String.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ]
+        },
+        "codefresh:index/RegistrySpecEcr:RegistrySpecEcr": {
+            "properties": {
+                "accessKeyId": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing access key id\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing one of the Amazon regions\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryPrefix": {
+                    "type": "string",
+                    "description": "_(Optional)_ String. See the [docs](https://codefresh.io/docs/docs/integrations/docker-registries/#using-an-optional-repository-prefix).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "secretAccessKey": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing secret access key\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "accessKeyId",
+                "region",
+                "secretAccessKey"
+            ]
+        },
+        "codefresh:index/RegistrySpecGar:RegistrySpecGar": {
+            "properties": {
+                "keyfile": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing service account json file contents\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "location": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing one of the Google's gar locations\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryPrefix": {
+                    "type": "string",
+                    "description": "_(Optional)_ String. See the [docs](https://codefresh.io/docs/docs/integrations/docker-registries/#using-an-optional-repository-prefix).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "keyfile",
+                "location"
+            ]
+        },
+        "codefresh:index/RegistrySpecGcr:RegistrySpecGcr": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing one of the Google's gcr domains\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "keyfile": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing service account json file contents\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryPrefix": {
+                    "type": "string",
+                    "description": "_(Optional)_ String. See the [docs](https://codefresh.io/docs/docs/integrations/docker-registries/#using-an-optional-repository-prefix).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "keyfile"
+            ]
+        },
+        "codefresh:index/RegistrySpecOther:RegistrySpecOther": {
+            "properties": {
+                "behindFirewall": {
+                    "type": "boolean",
+                    "description": "_(Optional, Default = false)_ Bool. See the [docs](https://codefresh.io/docs/docs/administration/behind-the-firewall/#accessing-an-internal-docker-registry).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing the bintray domain\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "password": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing token\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryPrefix": {
+                    "type": "string",
+                    "description": "_(Optional)_ String. See the [docs](https://codefresh.io/docs/docs/integrations/docker-registries/#using-an-optional-repository-prefix).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    },
+                    "willReplaceOnChanges": true
+                },
+                "username": {
+                    "type": "string",
+                    "description": "_(Required)_ String representing the username\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "domain",
+                "password",
+                "username"
+            ]
+        },
+        "codefresh:index/UserLogin:UserLogin": {
+            "properties": {
+                "idpId": {
+                    "type": "string",
+                    "description": "The id of IDP to the user to.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sso": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/UserPersonal:UserPersonal": {
+            "properties": {
+                "companyName": {
+                    "type": "string",
+                    "description": ".\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "country": {
+                    "type": "string",
+                    "description": ".\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "firstName": {
+                    "type": "string",
+                    "description": ".\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": ".\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "phoneNumber": {
+                    "type": "string",
+                    "description": ".\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "codefresh:index/UserShortProfile:UserShortProfile": {
+            "properties": {
+                "userName": {
+                    "type": "string",
+                    "description": "The new user name.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        }
+    },
+    "provider": {
+        "description": "The provider type for the codefresh package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "apiUrl": {
+                "type": "string"
+            },
+            "token": {
+                "type": "string"
+            }
+        },
+        "inputProperties": {
+            "apiUrl": {
+                "type": "string"
+            },
+            "token": {
+                "type": "string"
+            }
+        }
+    },
+    "resources": {
+        "codefresh:index/account:Account": {
+            "description": "## # Account resource\n\nBy creating different accounts for different teams within the same company a customer can achieve complete segregation of assets between the teams.\nSee the [documentation](https://codefresh.io/docs/docs/administration/ent-account-mng/).\n\n## Example usage\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as codefresh from \"@pulumi/codefresh\";\n\nconst test = new codefresh.Account(\"test\", {\n    builds: [{\n        parallel: 27,\n    }],\n    features: {\n        OfflineLogging: true,\n        abac: true,\n        customKubernetesCluster: true,\n        launchDarklyManagement: false,\n        ssoManagement: true,\n        teamsManagement: true,\n    },\n    limits: [{\n        collaborators: 25,\n        dataRetentionWeeks: 5,\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumiverse_codefresh as codefresh\n\ntest = codefresh.Account(\"test\",\n    builds=[codefresh.AccountBuildArgs(\n        parallel=27,\n    )],\n    features={\n        \"OfflineLogging\": True,\n        \"abac\": True,\n        \"customKubernetesCluster\": True,\n        \"launchDarklyManagement\": False,\n        \"ssoManagement\": True,\n        \"teamsManagement\": True,\n    },\n    limits=[codefresh.AccountLimitArgs(\n        collaborators=25,\n        data_retention_weeks=5,\n    )])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Codefresh = Pulumiverse.Codefresh;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Codefresh.Account(\"test\", new()\n    {\n        Builds = new[]\n        {\n            new Codefresh.Inputs.AccountBuildArgs\n            {\n                Parallel = 27,\n            },\n        },\n        Features = \n        {\n            { \"OfflineLogging\", true },\n            { \"abac\", true },\n            { \"customKubernetesCluster\", true },\n            { \"launchDarklyManagement\", false },\n            { \"ssoManagement\", true },\n            { \"teamsManagement\", true },\n        },\n        Limits = new[]\n        {\n            new Codefresh.Inputs.AccountLimitArgs\n            {\n                Collaborators = 25,\n                DataRetentionWeeks = 5,\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-codefresh/sdk/go/codefresh\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codefresh.NewAccount(ctx, \"test\", \u0026codefresh.AccountArgs{\n\t\t\tBuilds: AccountBuildArray{\n\t\t\t\t\u0026AccountBuildArgs{\n\t\t\t\t\tParallel: pulumi.Int(27),\n\t\t\t\t},\n\t\t\t},\n\t\t\tFeatures: pulumi.BoolMap{\n\t\t\t\t\"OfflineLogging\":          pulumi.Bool(true),\n\t\t\t\t\"abac\":                    pulumi.Bool(true),\n\t\t\t\t\"customKubernetesCluster\": pulumi.Bool(true),\n\t\t\t\t\"launchDarklyManagement\":  pulumi.Bool(false),\n\t\t\t\t\"ssoManagement\":           pulumi.Bool(true),\n\t\t\t\t\"teamsManagement\":         pulumi.Bool(true),\n\t\t\t},\n\t\t\tLimits: AccountLimitArray{\n\t\t\t\t\u0026AccountLimitArgs{\n\t\t\t\t\tCollaborators:      pulumi.Int(25),\n\t\t\t\t\tDataRetentionWeeks: pulumi.Int(5),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.codefresh.Account;\nimport com.pulumi.codefresh.AccountArgs;\nimport com.pulumi.codefresh.inputs.AccountBuildArgs;\nimport com.pulumi.codefresh.inputs.AccountLimitArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Account(\"test\", AccountArgs.builder()        \n            .builds(AccountBuildArgs.builder()\n                .parallel(27)\n                .build())\n            .features(Map.ofEntries(\n                Map.entry(\"OfflineLogging\", true),\n                Map.entry(\"abac\", true),\n                Map.entry(\"customKubernetesCluster\", true),\n                Map.entry(\"launchDarklyManagement\", false),\n                Map.entry(\"ssoManagement\", true),\n                Map.entry(\"teamsManagement\", true)\n            ))\n            .limits(AccountLimitArgs.builder()\n                .collaborators(25)\n                .dataRetentionWeeks(5)\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: codefresh:Account\n    properties:\n      builds:\n        - parallel: 27\n      features:\n        OfflineLogging: true\n        abac: true\n        customKubernetesCluster: true\n        launchDarklyManagement: false\n        ssoManagement: true\n        teamsManagement: true\n      limits:\n        - collaborators: 25\n          dataRetentionWeeks: 5\n```\n\n\n## Import\n\n\n\n```sh\n $ pulumi import codefresh:index/account:Account test xxxxxxxxxxxxxxxxxxx\n```\n\n ",
+            "properties": {
+                "builds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/AccountBuild:AccountBuild"
+                    },
+                    "description": "A collection of `build` blocks as documented below.\n"
+                },
+                "features": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "boolean"
+                    },
+                    "description": "map of supported features toggles \n---\n"
+                },
+                "limits": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/AccountLimit:AccountLimit"
+                    },
+                    "description": "A collection of `limits` blocks as documented below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the account.\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "builds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/AccountBuild:AccountBuild"
+                    },
+                    "description": "A collection of `build` blocks as documented below.\n"
+                },
+                "features": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "boolean"
+                    },
+                    "description": "map of supported features toggles \n---\n"
+                },
+                "limits": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/AccountLimit:AccountLimit"
+                    },
+                    "description": "A collection of `limits` blocks as documented below.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the account.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Account resources.\n",
+                "properties": {
+                    "builds": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/codefresh:index/AccountBuild:AccountBuild"
+                        },
+                        "description": "A collection of `build` blocks as documented below.\n"
+                    },
+                    "features": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "boolean"
+                        },
+                        "description": "map of supported features toggles \n---\n"
+                    },
+                    "limits": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/codefresh:index/AccountLimit:AccountLimit"
+                        },
+                        "description": "A collection of `limits` blocks as documented below.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The display name for the account.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "codefresh:index/context:Context": {
+            "description": "## # Context Resource\n\nA Context is an  authentication/configuration that is used by Codefresh system and engine.\nThere are multiple types of context available in Codefresh but they all have the following main components to define them:\n* Name: A unique identifier for the context\n* Type: A string representing the type of context\n* Data: A data structure that provide the information related to the Context. This differs based on the type of context selected\nFor more details of the Context spec see in the [CLI official documentation](https://codefresh-io.github.io/cli/contexts/spec/)\n\n## Supported types\n\nCurrently the provider support the following types of Context:\n* config (Shared Config )\n* secret (Shared Secret)\n* yaml (YAML Configuration Context)\n* secret-yaml (Secret YAML Configuration Context)\n\n### Shared Configuration\nA Shared Configuration is the entity in Codefresh that allow to create values in a central place that can then be consumed in pipelines to keep them DRY.\nMore details in the official [Shared Configuration documentation](https://codefresh.io/docs/docs/configure-ci-cd-pipeline/shared-configuration/)\n\n#### Example Usage of config (Shared Config)\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as codefresh from \"@pulumi/codefresh\";\n\nconst test_config = new codefresh.Context(\"test-config\", {\n    spec: {\n        config: {\n            data: {\n                var1: \"value1\",\n                var2: \"value2\",\n            },\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumiverse_codefresh as codefresh\n\ntest_config = codefresh.Context(\"test-config\", spec=codefresh.ContextSpecArgs(\n    config=codefresh.ContextSpecConfigArgs(\n        data={\n            \"var1\": \"value1\",\n            \"var2\": \"value2\",\n        },\n    ),\n))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Codefresh = Pulumiverse.Codefresh;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test_config = new Codefresh.Context(\"test-config\", new()\n    {\n        Spec = new Codefresh.Inputs.ContextSpecArgs\n        {\n            Config = new Codefresh.Inputs.ContextSpecConfigArgs\n            {\n                Data = \n                {\n                    { \"var1\", \"value1\" },\n                    { \"var2\", \"value2\" },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-codefresh/sdk/go/codefresh\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codefresh.NewContext(ctx, \"test-config\", \u0026codefresh.ContextArgs{\n\t\t\tSpec: \u0026ContextSpecArgs{\n\t\t\t\tConfig: \u0026ContextSpecConfigArgs{\n\t\t\t\t\tData: pulumi.StringMap{\n\t\t\t\t\t\t\"var1\": pulumi.String(\"value1\"),\n\t\t\t\t\t\t\"var2\": pulumi.String(\"value2\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.codefresh.Context;\nimport com.pulumi.codefresh.ContextArgs;\nimport com.pulumi.codefresh.inputs.ContextSpecArgs;\nimport com.pulumi.codefresh.inputs.ContextSpecConfigArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_config = new Context(\"test-config\", ContextArgs.builder()        \n            .spec(ContextSpecArgs.builder()\n                .config(ContextSpecConfigArgs.builder()\n                    .data(Map.ofEntries(\n                        Map.entry(\"var1\", \"value1\"),\n                        Map.entry(\"var2\", \"value2\")\n                    ))\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-config:\n    type: codefresh:Context\n    properties:\n      spec:\n        config:\n          data:\n            var1: value1\n            var2: value2\n```\n\n#### Example Usage of secret (Shared Secret)\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as codefresh from \"@pulumi/codefresh\";\n\nconst test_secret = new codefresh.Context(\"test-secret\", {\n    spec: {\n        secret: {\n            data: {\n                var1: \"value1\",\n                var2: \"value2\",\n            },\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumiverse_codefresh as codefresh\n\ntest_secret = codefresh.Context(\"test-secret\", spec=codefresh.ContextSpecArgs(\n    secret=codefresh.ContextSpecSecretArgs(\n        data={\n            \"var1\": \"value1\",\n            \"var2\": \"value2\",\n        },\n    ),\n))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Codefresh = Pulumiverse.Codefresh;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test_secret = new Codefresh.Context(\"test-secret\", new()\n    {\n        Spec = new Codefresh.Inputs.ContextSpecArgs\n        {\n            Secret = new Codefresh.Inputs.ContextSpecSecretArgs\n            {\n                Data = \n                {\n                    { \"var1\", \"value1\" },\n                    { \"var2\", \"value2\" },\n                },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-codefresh/sdk/go/codefresh\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codefresh.NewContext(ctx, \"test-secret\", \u0026codefresh.ContextArgs{\n\t\t\tSpec: \u0026ContextSpecArgs{\n\t\t\t\tSecret: \u0026ContextSpecSecretArgs{\n\t\t\t\t\tData: pulumi.StringMap{\n\t\t\t\t\t\t\"var1\": pulumi.String(\"value1\"),\n\t\t\t\t\t\t\"var2\": pulumi.String(\"value2\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.codefresh.Context;\nimport com.pulumi.codefresh.ContextArgs;\nimport com.pulumi.codefresh.inputs.ContextSpecArgs;\nimport com.pulumi.codefresh.inputs.ContextSpecSecretArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_secret = new Context(\"test-secret\", ContextArgs.builder()        \n            .spec(ContextSpecArgs.builder()\n                .secret(ContextSpecSecretArgs.builder()\n                    .data(Map.ofEntries(\n                        Map.entry(\"var1\", \"value1\"),\n                        Map.entry(\"var2\", \"value2\")\n                    ))\n                    .build())\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-secret:\n    type: codefresh:Context\n    properties:\n      spec:\n        secret:\n          data:\n            var1: value1\n            var2: value2\n```\n\n#### Example Usage of yaml (YAML Configuration Context)\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as codefresh from \"@pulumi/codefresh\";\n\nconst test_yaml = new codefresh.Context(\"test-yaml\", {\n    spec: {\n        // NOTE: you can also load the yaml from a file with `yaml = file(\"PATH-TO-FILE.yaml\")`\n        yaml: `test:\n  nested_value: value1\n  list:\n    - test2\n    - test3\nanother_element: value\n`,\n    },\n});\n```\n```python\nimport pulumi\nimport pulumiverse_codefresh as codefresh\n\ntest_yaml = codefresh.Context(\"test-yaml\", spec=codefresh.ContextSpecArgs(\n    yaml=\"\"\"test:\n  nested_value: value1\n  list:\n    - test2\n    - test3\nanother_element: value\n\n\"\"\",\n))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Codefresh = Pulumiverse.Codefresh;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test_yaml = new Codefresh.Context(\"test-yaml\", new()\n    {\n        Spec = new Codefresh.Inputs.ContextSpecArgs\n        {\n            Yaml = @\"test:\n  nested_value: value1\n  list:\n    - test2\n    - test3\nanother_element: value\n\n\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-codefresh/sdk/go/codefresh\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codefresh.NewContext(ctx, \"test-yaml\", \u0026codefresh.ContextArgs{\n\t\t\tSpec: \u0026ContextSpecArgs{\n\t\t\t\tYaml: fmt.Sprintf(`test:\n  nested_value: value1\n  list:\n    - test2\n    - test3\nanother_element: value\n\n`),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.codefresh.Context;\nimport com.pulumi.codefresh.ContextArgs;\nimport com.pulumi.codefresh.inputs.ContextSpecArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_yaml = new Context(\"test-yaml\", ContextArgs.builder()        \n            .spec(ContextSpecArgs.builder()\n                .yaml(\"\"\"\ntest:\n  nested_value: value1\n  list:\n    - test2\n    - test3\nanother_element: value\n\n                \"\"\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-yaml:\n    type: codefresh:Context\n    properties:\n      spec:\n        yaml: |+\n          test:\n            nested_value: value1\n            list:\n              - test2\n              - test3\n          another_element: value\n```\n\n#### Example Usage of secret-yaml (Secret YAML Configuration Context)\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as codefresh from \"@pulumiverse/codefresh\";\nimport * as fs from \"fs\";\n\nconst test_secret_yaml = new codefresh.Context(\"test-secret-yaml\", {spec: {\n    secretyaml: fs.readFileSync(\"test.yaml\"),\n}});\n```\n```python\nimport pulumi\nimport pulumiverse_codefresh as codefresh\n\ntest_secret_yaml = codefresh.Context(\"test-secret-yaml\", spec=codefresh.ContextSpecArgs(\n    secretyaml=(lambda path: open(path).read())(\"test.yaml\"),\n))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Codefresh = Pulumiverse.Codefresh;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test_secret_yaml = new Codefresh.Context(\"test-secret-yaml\", new()\n    {\n        Spec = new Codefresh.Inputs.ContextSpecArgs\n        {\n            Secretyaml = File.ReadAllText(\"test.yaml\"),\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"io/ioutil\"\n\n\t\"github.com/pulumi/pulumi-codefresh/sdk/go/codefresh\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := ioutil.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codefresh.NewContext(ctx, \"test-secret-yaml\", \u0026codefresh.ContextArgs{\n\t\t\tSpec: \u0026ContextSpecArgs{\n\t\t\t\tSecretyaml: readFileOrPanic(\"test.yaml\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.codefresh.Context;\nimport com.pulumi.codefresh.ContextArgs;\nimport com.pulumi.codefresh.inputs.ContextSpecArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_secret_yaml = new Context(\"test-secret-yaml\", ContextArgs.builder()        \n            .spec(ContextSpecArgs.builder()\n                .secretyaml(Files.readString(Paths.get(\"test.yaml\")))\n                .build())\n            .build());\n\n    }\n}\n```\n",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the context.\n"
+                },
+                "spec": {
+                    "$ref": "#/types/codefresh:index/ContextSpec:ContextSpec",
+                    "description": "A `spec` block as documented below.\n"
+                }
+            },
+            "required": [
+                "name",
+                "spec"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the context.\n",
+                    "willReplaceOnChanges": true
+                },
+                "spec": {
+                    "$ref": "#/types/codefresh:index/ContextSpec:ContextSpec",
+                    "description": "A `spec` block as documented below.\n"
+                }
+            },
+            "requiredInputs": [
+                "spec"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Context resources.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The display name for the context.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "spec": {
+                        "$ref": "#/types/codefresh:index/ContextSpec:ContextSpec",
+                        "description": "A `spec` block as documented below.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "codefresh:index/pipeline:Pipeline": {
+            "description": "## # Pipeline Resource\n\nThe central component of the Codefresh Platform. Pipelines are workflows that contain individual steps. Each step is responsible for a specific action in the process.\nSee the [documentation](https://codefresh.io/docs/docs/configure-ci-cd-pipeline/introduction-to-codefresh-pipelines/) for the details.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as codefresh from \"@pulumiverse/codefresh\";\n\nconst testProject = new codefresh.Project(\"testProject\", {});\nconst testPipeline = new codefresh.Pipeline(\"testPipeline\", {\n    tags: [\n        \"production\",\n        \"docker\",\n    ],\n    spec: {\n        concurrency: 1,\n        branchConcurrency: 1,\n        triggerConcurrency: 1,\n        priority: 5,\n        specTemplates: [{\n            repo: \"codefresh-contrib/react-sample-app\",\n            path: \"./codefresh.yml\",\n            revision: \"master\",\n            context: \"git\",\n        }],\n        contexts: [\n            \"context1-name\",\n            \"context2-name\",\n        ],\n        triggers: [\n            {\n                branchRegex: \"/.*/gi\",\n                context: \"git\",\n                description: \"Trigger for commits\",\n                disabled: false,\n                events: [\"push.heads\"],\n                modifiedFilesGlob: \"\",\n                name: \"commits\",\n                provider: \"github\",\n                repo: \"codefresh-contrib/react-sample-app\",\n                type: \"git\",\n            },\n            {\n                branchRegex: \"/.*/gi\",\n                context: \"git\",\n                description: \"Trigger for tags\",\n                disabled: false,\n                events: [\"push.tags\"],\n                modifiedFilesGlob: \"\",\n                commitStatusTitle: \"tags-trigger\",\n                name: \"tags\",\n                provider: \"github\",\n                repo: \"codefresh-contrib/react-sample-app\",\n                type: \"git\",\n            },\n        ],\n        variables: {\n            MY_PIP_VAR: \"value\",\n            ANOTHER_PIP_VAR: \"another_value\",\n        },\n    },\n});\n```\n```python\nimport pulumi\nimport pulumiverse_codefresh as codefresh\n\ntest_project = codefresh.Project(\"testProject\")\ntest_pipeline = codefresh.Pipeline(\"testPipeline\",\n    tags=[\n        \"production\",\n        \"docker\",\n    ],\n    spec=codefresh.PipelineSpecArgs(\n        concurrency=1,\n        branch_concurrency=1,\n        trigger_concurrency=1,\n        priority=5,\n        spec_templates=[codefresh.PipelineSpecSpecTemplateArgs(\n            repo=\"codefresh-contrib/react-sample-app\",\n            path=\"./codefresh.yml\",\n            revision=\"master\",\n            context=\"git\",\n        )],\n        contexts=[\n            \"context1-name\",\n            \"context2-name\",\n        ],\n        triggers=[\n            codefresh.PipelineSpecTriggerArgs(\n                branch_regex=\"/.*/gi\",\n                context=\"git\",\n                description=\"Trigger for commits\",\n                disabled=False,\n                events=[\"push.heads\"],\n                modified_files_glob=\"\",\n                name=\"commits\",\n                provider=\"github\",\n                repo=\"codefresh-contrib/react-sample-app\",\n                type=\"git\",\n            ),\n            codefresh.PipelineSpecTriggerArgs(\n                branch_regex=\"/.*/gi\",\n                context=\"git\",\n                description=\"Trigger for tags\",\n                disabled=False,\n                events=[\"push.tags\"],\n                modified_files_glob=\"\",\n                commit_status_title=\"tags-trigger\",\n                name=\"tags\",\n                provider=\"github\",\n                repo=\"codefresh-contrib/react-sample-app\",\n                type=\"git\",\n            ),\n        ],\n        variables={\n            \"MY_PIP_VAR\": \"value\",\n            \"ANOTHER_PIP_VAR\": \"another_value\",\n        },\n    ))\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Codefresh = Pulumiverse.Codefresh;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testProject = new Codefresh.Project(\"testProject\");\n\n    var testPipeline = new Codefresh.Pipeline(\"testPipeline\", new()\n    {\n        Tags = new[]\n        {\n            \"production\",\n            \"docker\",\n        },\n        Spec = new Codefresh.Inputs.PipelineSpecArgs\n        {\n            Concurrency = 1,\n            BranchConcurrency = 1,\n            TriggerConcurrency = 1,\n            Priority = 5,\n            SpecTemplates = new[]\n            {\n                new Codefresh.Inputs.PipelineSpecSpecTemplateArgs\n                {\n                    Repo = \"codefresh-contrib/react-sample-app\",\n                    Path = \"./codefresh.yml\",\n                    Revision = \"master\",\n                    Context = \"git\",\n                },\n            },\n            Contexts = new[]\n            {\n                \"context1-name\",\n                \"context2-name\",\n            },\n            Triggers = new[]\n            {\n                new Codefresh.Inputs.PipelineSpecTriggerArgs\n                {\n                    BranchRegex = \"/.*/gi\",\n                    Context = \"git\",\n                    Description = \"Trigger for commits\",\n                    Disabled = false,\n                    Events = new[]\n                    {\n                        \"push.heads\",\n                    },\n                    ModifiedFilesGlob = \"\",\n                    Name = \"commits\",\n                    Provider = \"github\",\n                    Repo = \"codefresh-contrib/react-sample-app\",\n                    Type = \"git\",\n                },\n                new Codefresh.Inputs.PipelineSpecTriggerArgs\n                {\n                    BranchRegex = \"/.*/gi\",\n                    Context = \"git\",\n                    Description = \"Trigger for tags\",\n                    Disabled = false,\n                    Events = new[]\n                    {\n                        \"push.tags\",\n                    },\n                    ModifiedFilesGlob = \"\",\n                    CommitStatusTitle = \"tags-trigger\",\n                    Name = \"tags\",\n                    Provider = \"github\",\n                    Repo = \"codefresh-contrib/react-sample-app\",\n                    Type = \"git\",\n                },\n            },\n            Variables = \n            {\n                { \"MY_PIP_VAR\", \"value\" },\n                { \"ANOTHER_PIP_VAR\", \"another_value\" },\n            },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-codefresh/sdk/go/codefresh\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codefresh.NewProject(ctx, \"testProject\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = codefresh.NewPipeline(ctx, \"testPipeline\", \u0026codefresh.PipelineArgs{\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"production\"),\n\t\t\t\tpulumi.String(\"docker\"),\n\t\t\t},\n\t\t\tSpec: \u0026PipelineSpecArgs{\n\t\t\t\tConcurrency:        pulumi.Int(1),\n\t\t\t\tBranchConcurrency:  pulumi.Int(1),\n\t\t\t\tTriggerConcurrency: pulumi.Int(1),\n\t\t\t\tPriority:           pulumi.Int(5),\n\t\t\t\tSpecTemplates: PipelineSpecSpecTemplateArray{\n\t\t\t\t\t\u0026PipelineSpecSpecTemplateArgs{\n\t\t\t\t\t\tRepo:     pulumi.String(\"codefresh-contrib/react-sample-app\"),\n\t\t\t\t\t\tPath:     pulumi.String(\"./codefresh.yml\"),\n\t\t\t\t\t\tRevision: pulumi.String(\"master\"),\n\t\t\t\t\t\tContext:  pulumi.String(\"git\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tContexts: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"context1-name\"),\n\t\t\t\t\tpulumi.String(\"context2-name\"),\n\t\t\t\t},\n\t\t\t\tTriggers: PipelineSpecTriggerArray{\n\t\t\t\t\t\u0026PipelineSpecTriggerArgs{\n\t\t\t\t\t\tBranchRegex: pulumi.String(\"/.*/gi\"),\n\t\t\t\t\t\tContext:     pulumi.String(\"git\"),\n\t\t\t\t\t\tDescription: pulumi.String(\"Trigger for commits\"),\n\t\t\t\t\t\tDisabled:    pulumi.Bool(false),\n\t\t\t\t\t\tEvents: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"push.heads\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tModifiedFilesGlob: pulumi.String(\"\"),\n\t\t\t\t\t\tName:              pulumi.String(\"commits\"),\n\t\t\t\t\t\tProvider:          pulumi.String(\"github\"),\n\t\t\t\t\t\tRepo:              pulumi.String(\"codefresh-contrib/react-sample-app\"),\n\t\t\t\t\t\tType:              pulumi.String(\"git\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026PipelineSpecTriggerArgs{\n\t\t\t\t\t\tBranchRegex: pulumi.String(\"/.*/gi\"),\n\t\t\t\t\t\tContext:     pulumi.String(\"git\"),\n\t\t\t\t\t\tDescription: pulumi.String(\"Trigger for tags\"),\n\t\t\t\t\t\tDisabled:    pulumi.Bool(false),\n\t\t\t\t\t\tEvents: pulumi.StringArray{\n\t\t\t\t\t\t\tpulumi.String(\"push.tags\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\tModifiedFilesGlob: pulumi.String(\"\"),\n\t\t\t\t\t\tCommitStatusTitle: pulumi.String(\"tags-trigger\"),\n\t\t\t\t\t\tName:              pulumi.String(\"tags\"),\n\t\t\t\t\t\tProvider:          pulumi.String(\"github\"),\n\t\t\t\t\t\tRepo:              pulumi.String(\"codefresh-contrib/react-sample-app\"),\n\t\t\t\t\t\tType:              pulumi.String(\"git\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\tVariables: pulumi.StringMap{\n\t\t\t\t\t\"MY_PIP_VAR\":      pulumi.String(\"value\"),\n\t\t\t\t\t\"ANOTHER_PIP_VAR\": pulumi.String(\"another_value\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.codefresh.Project;\nimport com.pulumi.codefresh.Pipeline;\nimport com.pulumi.codefresh.PipelineArgs;\nimport com.pulumi.codefresh.inputs.PipelineSpecArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testProject = new Project(\"testProject\");\n\n        var testPipeline = new Pipeline(\"testPipeline\", PipelineArgs.builder()        \n            .tags(            \n                \"production\",\n                \"docker\")\n            .spec(PipelineSpecArgs.builder()\n                .concurrency(1)\n                .branchConcurrency(1)\n                .triggerConcurrency(1)\n                .priority(5)\n                .specTemplates(PipelineSpecSpecTemplateArgs.builder()\n                    .repo(\"codefresh-contrib/react-sample-app\")\n                    .path(\"./codefresh.yml\")\n                    .revision(\"master\")\n                    .context(\"git\")\n                    .build())\n                .contexts(                \n                    \"context1-name\",\n                    \"context2-name\")\n                .triggers(                \n                    PipelineSpecTriggerArgs.builder()\n                        .branchRegex(\"/.*/gi\")\n                        .context(\"git\")\n                        .description(\"Trigger for commits\")\n                        .disabled(false)\n                        .events(\"push.heads\")\n                        .modifiedFilesGlob(\"\")\n                        .name(\"commits\")\n                        .provider(\"github\")\n                        .repo(\"codefresh-contrib/react-sample-app\")\n                        .type(\"git\")\n                        .build(),\n                    PipelineSpecTriggerArgs.builder()\n                        .branchRegex(\"/.*/gi\")\n                        .context(\"git\")\n                        .description(\"Trigger for tags\")\n                        .disabled(false)\n                        .events(\"push.tags\")\n                        .modifiedFilesGlob(\"\")\n                        .commitStatusTitle(\"tags-trigger\")\n                        .name(\"tags\")\n                        .provider(\"github\")\n                        .repo(\"codefresh-contrib/react-sample-app\")\n                        .type(\"git\")\n                        .build())\n                .variables(Map.ofEntries(\n                    Map.entry(\"MY_PIP_VAR\", \"value\"),\n                    Map.entry(\"ANOTHER_PIP_VAR\", \"another_value\")\n                ))\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testProject:\n    type: codefresh:Project\n  testPipeline:\n    type: codefresh:Pipeline\n    properties:\n      tags:\n        - production\n        - docker\n      spec:\n        concurrency: 1\n        branchConcurrency: 1\n        triggerConcurrency: 1\n        priority: 5\n        specTemplates:\n          - repo: codefresh-contrib/react-sample-app\n            path: ./codefresh.yml\n            revision: master\n            context: git\n        contexts:\n          - context1-name\n          - context2-name\n        triggers:\n          - branchRegex: /.*/gi\n            context: git\n            description: Trigger for commits\n            disabled: false\n            events:\n              - push.heads\n            modifiedFilesGlob:\n            name: commits\n            provider: github\n            repo: codefresh-contrib/react-sample-app\n            type: git\n          - branchRegex: /.*/gi\n            context: git\n            description: Trigger for tags\n            disabled: false\n            events:\n              - push.tags\n            modifiedFilesGlob:\n            commitStatusTitle: tags-trigger\n            name: tags\n            provider: github\n            repo: codefresh-contrib/react-sample-app\n            type: git\n        variables:\n          MY_PIP_VAR: value\n          ANOTHER_PIP_VAR: another_value\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import codefresh:index/pipeline:Pipeline test xxxxxxxxxxxxxxxxxxx\n```\n\n ",
+            "properties": {
+                "isPublic": {
+                    "type": "boolean",
+                    "description": "Boolean that specifies if the build logs are publicly accessible. Default: false\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the pipeline.\n"
+                },
+                "originalYamlString": {
+                    "type": "string",
+                    "description": "A string with original yaml pipeline.\n- `original_yaml_string = \"version: \\\"1.0\\\"\\nsteps:\\n  test:\\n    image: alpine:latest\\n    commands:\\n      - echo \\\"ACC tests\\\"\"`\n- or `original_yaml_string = file(\"/path/to/my/codefresh.yml\")`\n"
+                },
+                "projectId": {
+                    "type": "string"
+                },
+                "revision": {
+                    "type": "integer",
+                    "description": "The pipeline's revision. Should be added to the **lifecycle/ignore_changes** or incremented mannually each update.\n"
+                },
+                "spec": {
+                    "$ref": "#/types/codefresh:index/PipelineSpec:PipelineSpec",
+                    "description": "A collection of `spec` blocks as documented below.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of tags to mark a project for easy management and access control.\n"
+                }
+            },
+            "required": [
+                "name",
+                "projectId",
+                "revision"
+            ],
+            "inputProperties": {
+                "isPublic": {
+                    "type": "boolean",
+                    "description": "Boolean that specifies if the build logs are publicly accessible. Default: false\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the pipeline.\n"
+                },
+                "originalYamlString": {
+                    "type": "string",
+                    "description": "A string with original yaml pipeline.\n- `original_yaml_string = \"version: \\\"1.0\\\"\\nsteps:\\n  test:\\n    image: alpine:latest\\n    commands:\\n      - echo \\\"ACC tests\\\"\"`\n- or `original_yaml_string = file(\"/path/to/my/codefresh.yml\")`\n"
+                },
+                "spec": {
+                    "$ref": "#/types/codefresh:index/PipelineSpec:PipelineSpec",
+                    "description": "A collection of `spec` blocks as documented below.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of tags to mark a project for easy management and access control.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Pipeline resources.\n",
+                "properties": {
+                    "isPublic": {
+                        "type": "boolean",
+                        "description": "Boolean that specifies if the build logs are publicly accessible. Default: false\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The display name for the pipeline.\n"
+                    },
+                    "originalYamlString": {
+                        "type": "string",
+                        "description": "A string with original yaml pipeline.\n- `original_yaml_string = \"version: \\\"1.0\\\"\\nsteps:\\n  test:\\n    image: alpine:latest\\n    commands:\\n      - echo \\\"ACC tests\\\"\"`\n- or `original_yaml_string = file(\"/path/to/my/codefresh.yml\")`\n"
+                    },
+                    "projectId": {
+                        "type": "string"
+                    },
+                    "revision": {
+                        "type": "integer",
+                        "description": "The pipeline's revision. Should be added to the **lifecycle/ignore_changes** or incremented mannually each update.\n"
+                    },
+                    "spec": {
+                        "$ref": "#/types/codefresh:index/PipelineSpec:PipelineSpec",
+                        "description": "A collection of `spec` blocks as documented below.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of tags to mark a project for easy management and access control.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "codefresh:index/project:Project": {
+            "description": "## # Project Resource\n\nThe top-level concept in Codefresh. You can create projects to group pipelines that are related. In most cases a single project will be a single application (that itself contains many micro-services). You are free to use projects as you see fit. For example, you could create a project for a specific Kubernetes cluster or a specific team/department.\nMore about pipeline concepts see in the [official documentation](https://codefresh.io/docs/docs/configure-ci-cd-pipeline/pipelines/#pipeline-concepts).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as codefresh from \"@pulumi/codefresh\";\n\nconst test = new codefresh.Project(\"test\", {\n    tags: [\n        \"production\",\n        \"docker\",\n    ],\n    variables: {\n        go_version: \"1.13\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumiverse_codefresh as codefresh\n\ntest = codefresh.Project(\"test\",\n    tags=[\n        \"production\",\n        \"docker\",\n    ],\n    variables={\n        \"go_version\": \"1.13\",\n    })\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Codefresh = Pulumiverse.Codefresh;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Codefresh.Project(\"test\", new()\n    {\n        Tags = new[]\n        {\n            \"production\",\n            \"docker\",\n        },\n        Variables = \n        {\n            { \"go_version\", \"1.13\" },\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-codefresh/sdk/go/codefresh\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codefresh.NewProject(ctx, \"test\", \u0026codefresh.ProjectArgs{\n\t\t\tTags: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"production\"),\n\t\t\t\tpulumi.String(\"docker\"),\n\t\t\t},\n\t\t\tVariables: pulumi.StringMap{\n\t\t\t\t\"go_version\": pulumi.String(\"1.13\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.codefresh.Project;\nimport com.pulumi.codefresh.ProjectArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Project(\"test\", ProjectArgs.builder()        \n            .tags(            \n                \"production\",\n                \"docker\")\n            .variables(Map.of(\"go_version\", \"1.13\"))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: codefresh:Project\n    properties:\n      tags:\n        - production\n        - docker\n      variables:\n        go_version: 1.13\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\n\n\n```sh\n $ pulumi import codefresh:index/project:Project test xxxxxxxxxxxxxxxxxxx\n```\n\n ",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the project.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of tags to mark a project for easy management and access control.\n"
+                },
+                "variables": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "project variables.\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the project.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of tags to mark a project for easy management and access control.\n"
+                },
+                "variables": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "project variables.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Project resources.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The display name for the project.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of tags to mark a project for easy management and access control.\n"
+                    },
+                    "variables": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "project variables.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "codefresh:index/registry:Registry": {
+            "properties": {
+                "default": {
+                    "type": "boolean",
+                    "description": "_(Optional, Default = false)_ default registry\n"
+                },
+                "fallbackRegistry": {
+                    "type": "string",
+                    "description": "_(Optional)_ fallback registry\n"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "_(Required)_ some unique name for registry\n"
+                },
+                "primary": {
+                    "type": "boolean",
+                    "description": "_(Optional, Default = true)_ primary registry\n"
+                },
+                "spec": {
+                    "$ref": "#/types/codefresh:index/RegistrySpec:RegistrySpec",
+                    "description": "_(Required)_ A `spec` block as documented below.\n"
+                }
+            },
+            "required": [
+                "kind",
+                "name",
+                "spec"
+            ],
+            "inputProperties": {
+                "default": {
+                    "type": "boolean",
+                    "description": "_(Optional, Default = false)_ default registry\n"
+                },
+                "fallbackRegistry": {
+                    "type": "string",
+                    "description": "_(Optional)_ fallback registry\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "_(Required)_ some unique name for registry\n"
+                },
+                "primary": {
+                    "type": "boolean",
+                    "description": "_(Optional, Default = true)_ primary registry\n"
+                },
+                "spec": {
+                    "$ref": "#/types/codefresh:index/RegistrySpec:RegistrySpec",
+                    "description": "_(Required)_ A `spec` block as documented below.\n"
+                }
+            },
+            "requiredInputs": [
+                "spec"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Registry resources.\n",
+                "properties": {
+                    "default": {
+                        "type": "boolean",
+                        "description": "_(Optional, Default = false)_ default registry\n"
+                    },
+                    "fallbackRegistry": {
+                        "type": "string",
+                        "description": "_(Optional)_ fallback registry\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "kind": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "_(Required)_ some unique name for registry\n"
+                    },
+                    "primary": {
+                        "type": "boolean",
+                        "description": "_(Optional, Default = true)_ primary registry\n"
+                    },
+                    "spec": {
+                        "$ref": "#/types/codefresh:index/RegistrySpec:RegistrySpec",
+                        "description": "_(Required)_ A `spec` block as documented below.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "codefresh:index/team:Team": {
+            "description": "## # Team resource\n\nTeam is used as a part of access control and allow to define what teams have access to which clusters and pipelines.\nSee the [documentation](https://codefresh.io/docs/docs/administration/access-control/).\n\n## Example usage\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as codefresh from \"@pulumi/codefresh\";\n\nconst developers = new codefresh.Team(\"developers\", {\n    users: [\n        \"5efc3cb6355c6647041b6e49\",\n        \"59009221c102763beda7cf04\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumiverse_codefresh as codefresh\n\ndevelopers = codefresh.Team(\"developers\", users=[\n    \"5efc3cb6355c6647041b6e49\",\n    \"59009221c102763beda7cf04\",\n])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Codefresh = Pulumiverse.Codefresh;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var developers = new Codefresh.Team(\"developers\", new()\n    {\n        Users = new[]\n        {\n            \"5efc3cb6355c6647041b6e49\",\n            \"59009221c102763beda7cf04\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-codefresh/sdk/go/codefresh\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := codefresh.NewTeam(ctx, \"developers\", \u0026codefresh.TeamArgs{\n\t\t\tUsers: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"5efc3cb6355c6647041b6e49\"),\n\t\t\t\tpulumi.String(\"59009221c102763beda7cf04\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.codefresh.Team;\nimport com.pulumi.codefresh.TeamArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var developers = new Team(\"developers\", TeamArgs.builder()        \n            .users(            \n                \"5efc3cb6355c6647041b6e49\",\n                \"59009221c102763beda7cf04\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  developers:\n    type: codefresh:Team\n    properties:\n      users:\n        - 5efc3cb6355c6647041b6e49\n        - 59009221c102763beda7cf04\n```\n",
+            "properties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The relevant Account ID.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the team.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of tags to mark a team for easy management.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the team. Possible values:\n- __default__\n- __admin__\n"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of user IDs that should be in the team.\n"
+                }
+            },
+            "required": [
+                "accountId",
+                "name"
+            ],
+            "inputProperties": {
+                "accountId": {
+                    "type": "string",
+                    "description": "The relevant Account ID.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name for the team.\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of tags to mark a team for easy management.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the team. Possible values:\n- __default__\n- __admin__\n"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of user IDs that should be in the team.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Team resources.\n",
+                "properties": {
+                    "accountId": {
+                        "type": "string",
+                        "description": "The relevant Account ID.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The display name for the team.\n"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of tags to mark a team for easy management.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of the team. Possible values:\n- __default__\n- __admin__\n"
+                    },
+                    "users": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of user IDs that should be in the team.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "codefresh:index/user:User": {
+            "description": "## # User resource\n\nUse this resource to create a new user.\n\n## Example usage\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as codefresh from \"@pulumiverse/codefresh\";\n\nconst test = new codefresh.Account(\"test\", {\n    limits: [{\n        collaborators: 25,\n        dataRetentionWeeks: 5,\n    }],\n    builds: [{\n        parallel: 2,\n    }],\n});\nconst _new = new codefresh.User(\"new\", {\n    email: \"\u003cEMAIL\u003e\",\n    userName: \"\u003cUSER\u003e\",\n    activate: true,\n    roles: [\n        \"Admin\",\n        \"User\",\n    ],\n    logins: [\n        {\n            idpId: data.codefresh_idps.idp_azure.id,\n            sso: true,\n        },\n        {\n            idpId: data.codefresh_idps.local.id,\n        },\n    ],\n    personal: {\n        firstName: \"John\",\n        lastName: \"Smith\",\n    },\n    accounts: [\n        test.id,\n        \"59009117c102763beda7ce71\",\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumiverse_codefresh as codefresh\n\ntest = codefresh.Account(\"test\",\n    limits=[codefresh.AccountLimitArgs(\n        collaborators=25,\n        data_retention_weeks=5,\n    )],\n    builds=[codefresh.AccountBuildArgs(\n        parallel=2,\n    )])\nnew = codefresh.User(\"new\",\n    email=\"\u003cEMAIL\u003e\",\n    user_name=\"\u003cUSER\u003e\",\n    activate=True,\n    roles=[\n        \"Admin\",\n        \"User\",\n    ],\n    logins=[\n        codefresh.UserLoginArgs(\n            idp_id=data[\"codefresh_idps\"][\"idp_azure\"][\"id\"],\n            sso=True,\n        ),\n        codefresh.UserLoginArgs(\n            idp_id=data[\"codefresh_idps\"][\"local\"][\"id\"],\n        ),\n    ],\n    personal=codefresh.UserPersonalArgs(\n        first_name=\"John\",\n        last_name=\"Smith\",\n    ),\n    accounts=[\n        test.id,\n        \"59009117c102763beda7ce71\",\n    ])\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Codefresh = Pulumiverse.Codefresh;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test = new Codefresh.Account(\"test\", new()\n    {\n        Limits = new[]\n        {\n            new Codefresh.Inputs.AccountLimitArgs\n            {\n                Collaborators = 25,\n                DataRetentionWeeks = 5,\n            },\n        },\n        Builds = new[]\n        {\n            new Codefresh.Inputs.AccountBuildArgs\n            {\n                Parallel = 2,\n            },\n        },\n    });\n\n    var @new = new Codefresh.User(\"new\", new()\n    {\n        Email = \"\u003cEMAIL\u003e\",\n        UserName = \"\u003cUSER\u003e\",\n        Activate = true,\n        Roles = new[]\n        {\n            \"Admin\",\n            \"User\",\n        },\n        Logins = new[]\n        {\n            new Codefresh.Inputs.UserLoginArgs\n            {\n                IdpId = data.Codefresh_idps.Idp_azure.Id,\n                Sso = true,\n            },\n            new Codefresh.Inputs.UserLoginArgs\n            {\n                IdpId = data.Codefresh_idps.Local.Id,\n            },\n        },\n        Personal = new Codefresh.Inputs.UserPersonalArgs\n        {\n            FirstName = \"John\",\n            LastName = \"Smith\",\n        },\n        Accounts = new[]\n        {\n            test.Id,\n            \"59009117c102763beda7ce71\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-codefresh/sdk/go/codefresh\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttest, err := codefresh.NewAccount(ctx, \"test\", \u0026codefresh.AccountArgs{\n\t\t\tLimits: AccountLimitArray{\n\t\t\t\t\u0026AccountLimitArgs{\n\t\t\t\t\tCollaborators:      pulumi.Int(25),\n\t\t\t\t\tDataRetentionWeeks: pulumi.Int(5),\n\t\t\t\t},\n\t\t\t},\n\t\t\tBuilds: AccountBuildArray{\n\t\t\t\t\u0026AccountBuildArgs{\n\t\t\t\t\tParallel: pulumi.Int(2),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = codefresh.NewUser(ctx, \"new\", \u0026codefresh.UserArgs{\n\t\t\tEmail:    pulumi.String(\"\u003cEMAIL\u003e\"),\n\t\t\tUserName: pulumi.String(\"\u003cUSER\u003e\"),\n\t\t\tActivate: pulumi.Bool(true),\n\t\t\tRoles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"Admin\"),\n\t\t\t\tpulumi.String(\"User\"),\n\t\t\t},\n\t\t\tLogins: UserLoginArray{\n\t\t\t\t\u0026UserLoginArgs{\n\t\t\t\t\tIdpId: pulumi.Any(data.Codefresh_idps.Idp_azure.Id),\n\t\t\t\t\tSso:   pulumi.Bool(true),\n\t\t\t\t},\n\t\t\t\t\u0026UserLoginArgs{\n\t\t\t\t\tIdpId: pulumi.Any(data.Codefresh_idps.Local.Id),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPersonal: \u0026UserPersonalArgs{\n\t\t\t\tFirstName: pulumi.String(\"John\"),\n\t\t\t\tLastName:  pulumi.String(\"Smith\"),\n\t\t\t},\n\t\t\tAccounts: pulumi.StringArray{\n\t\t\t\ttest.ID(),\n\t\t\t\tpulumi.String(\"59009117c102763beda7ce71\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.codefresh.Account;\nimport com.pulumi.codefresh.AccountArgs;\nimport com.pulumi.codefresh.inputs.AccountLimitArgs;\nimport com.pulumi.codefresh.inputs.AccountBuildArgs;\nimport com.pulumi.codefresh.User;\nimport com.pulumi.codefresh.UserArgs;\nimport com.pulumi.codefresh.inputs.UserLoginArgs;\nimport com.pulumi.codefresh.inputs.UserPersonalArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test = new Account(\"test\", AccountArgs.builder()        \n            .limits(AccountLimitArgs.builder()\n                .collaborators(25)\n                .dataRetentionWeeks(5)\n                .build())\n            .builds(AccountBuildArgs.builder()\n                .parallel(2)\n                .build())\n            .build());\n\n        var new_ = new User(\"new\", UserArgs.builder()        \n            .email(\"\u003cEMAIL\u003e\")\n            .userName(\"\u003cUSER\u003e\")\n            .activate(true)\n            .roles(            \n                \"Admin\",\n                \"User\")\n            .logins(            \n                UserLoginArgs.builder()\n                    .idpId(data.codefresh_idps().idp_azure().id())\n                    .sso(true)\n                    .build(),\n                UserLoginArgs.builder()\n                    .idpId(data.codefresh_idps().local().id())\n                    .build())\n            .personal(UserPersonalArgs.builder()\n                .firstName(\"John\")\n                .lastName(\"Smith\")\n                .build())\n            .accounts(            \n                test.id(),\n                \"59009117c102763beda7ce71\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test:\n    type: codefresh:Account\n    properties:\n      limits:\n        - collaborators: 25\n          dataRetentionWeeks: 5\n      builds:\n        - parallel: 2\n  new:\n    type: codefresh:User\n    properties:\n      email: \u003cEMAIL\u003e\n      userName: \u003cUSER\u003e\n      activate: true\n      roles:\n        - Admin\n        - User\n      logins:\n        - idpId: ${data.codefresh_idps.idp_azure.id}\n          sso: true\n        - idpId: ${data.codefresh_idps.local.id}\n      personal:\n        firstName: John\n        lastName: Smith\n      accounts:\n        - ${test.id}\n        - 59009117c102763beda7ce71\n```\n\n\n## Import\n\n\n\n```sh\n $ pulumi import codefresh:index/user:User new xxxxxxxxxxxxxxxxxxx\n```\n\n ",
+            "properties": {
+                "accounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of user roles. Possible values - `Admin`, `User`.\n"
+                },
+                "activate": {
+                    "type": "boolean",
+                    "description": "Boolean. Activate the new use or not. If a new user is not activate, it'll be left pending.\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "A new user email.\n"
+                },
+                "logins": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/UserLogin:UserLogin"
+                    },
+                    "description": "A collection of `login` blocks as documented below.\n"
+                },
+                "personal": {
+                    "$ref": "#/types/codefresh:index/UserPersonal:UserPersonal",
+                    "description": "A collection of `personal` blocks as documented below.\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "shortProfiles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/UserShortProfile:UserShortProfile"
+                    }
+                },
+                "status": {
+                    "type": "string"
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The new user name.\n"
+                }
+            },
+            "required": [
+                "accounts",
+                "email",
+                "shortProfiles",
+                "status",
+                "userName"
+            ],
+            "inputProperties": {
+                "accounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of user roles. Possible values - `Admin`, `User`.\n"
+                },
+                "activate": {
+                    "type": "boolean",
+                    "description": "Boolean. Activate the new use or not. If a new user is not activate, it'll be left pending.\n"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "A new user email.\n"
+                },
+                "logins": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/codefresh:index/UserLogin:UserLogin"
+                    },
+                    "description": "A collection of `login` blocks as documented below.\n"
+                },
+                "personal": {
+                    "$ref": "#/types/codefresh:index/UserPersonal:UserPersonal",
+                    "description": "A collection of `personal` blocks as documented below.\n"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "userName": {
+                    "type": "string",
+                    "description": "The new user name.\n"
+                }
+            },
+            "requiredInputs": [
+                "accounts",
+                "email",
+                "userName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering User resources.\n",
+                "properties": {
+                    "accounts": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of user roles. Possible values - `Admin`, `User`.\n"
+                    },
+                    "activate": {
+                        "type": "boolean",
+                        "description": "Boolean. Activate the new use or not. If a new user is not activate, it'll be left pending.\n"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "A new user email.\n"
+                    },
+                    "logins": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/codefresh:index/UserLogin:UserLogin"
+                        },
+                        "description": "A collection of `login` blocks as documented below.\n"
+                    },
+                    "personal": {
+                        "$ref": "#/types/codefresh:index/UserPersonal:UserPersonal",
+                        "description": "A collection of `personal` blocks as documented below.\n"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "shortProfiles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/codefresh:index/UserShortProfile:UserShortProfile"
+                        }
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "userName": {
+                        "type": "string",
+                        "description": "The new user name.\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
