@@ -1,0 +1,5 @@
+{
+  "resource": true,
+  "name": "codefresh",
+  "server": "github://api.github.com/dirien/pulumi-codefresh"
+}
